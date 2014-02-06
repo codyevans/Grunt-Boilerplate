@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Grunt Test</title>
-	<link rel="stylesheet" href="css/build/global.css">
+	<link rel="stylesheet" href="css/build/prefixed/global.css">
 </head>
 <body>
 

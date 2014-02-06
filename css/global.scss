@@ -5,3 +5,11 @@ body {
 	background: red;
 	color: white;
 }
+
+h1 {
+	color: black;
+	transition: 0.3s ease;
+	&:hover {
+		color: rgba(black, 0.5);
+	}
+}

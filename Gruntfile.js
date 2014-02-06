@@ -32,6 +32,16 @@ module.exports = function(grunt) {
             } 
         },
 
+         autoprefixer: {
+            single_file: {
+                options: {
+                    browsers: ['last 2 version', 'ie 8', 'ie 9']
+                },
+                src: 'css/build/global.css',
+                dest: 'css/build/prefixed/global.css'
+            },
+        },
+
         // watch js/css files + livereload css
         watch: {
             options: {
@@ -46,7 +56,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['css/*.scss'],
-                tasks: ['sass'],
+                tasks: ['sass', 'autoprefixer'],
                 options: {
                     spawn: false,
                 }
@@ -59,9 +69,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat'); // load concat
     grunt.loadNpmTasks('grunt-contrib-uglify'); // load uglify
     grunt.loadNpmTasks('grunt-contrib-sass'); // load sass
+    grunt.loadNpmTasks('grunt-autoprefixer'); // load autoprefixer
     grunt.loadNpmTasks('grunt-contrib-watch'); // load watch
 
-    grunt.registerTask('default', ['concat', 'uglify', 'sass']); // tell grunt what to do
+    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer']); // tell grunt what to do
     grunt.registerTask('dev', ['watch']); // let grunt watch files
 
 };
